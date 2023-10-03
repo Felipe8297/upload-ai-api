@@ -56,6 +56,33 @@ Transcrição:
 '''`.trim(),
     },
   })
+  await prisma.prompt.create({
+    data: {
+      title: 'Post Informativo',
+      template:
+        `Seu papel é gerar um post sobre o assunto do vídeo para um post no linkedin.
+  
+Abaixo você receberá uma transcrição desse vídeo, use essa transcrição para gerar esse post.
+
+O post não possui máximo de palavras porém deve ser atrativo e com conteúdo de fácil entendimento e em primeira pessoa contendo os pontos principais do vídeo.
+
+Use palavras chamativas e que cativam a atenção de quem está lendo.
+
+Além disso, no final do post inclua uma lista de 3 até 10 hashtags em letra minúscula contendo palavras-chave do vídeo.
+
+O retorno deve seguir o seguinte formato:
+'''
+Post.
+
+#hashtag1 #hashtag2 #hashtag3 ...
+'''
+
+Transcrição:
+'''
+{transcription}
+'''`.trim(),
+    },
+  })
 }
 
 main()
